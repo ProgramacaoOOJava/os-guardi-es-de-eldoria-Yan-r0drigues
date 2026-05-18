@@ -17,6 +17,6 @@ public class Mago extends Personagem {
 	}
 	
 	public void usarHabilidadeEspecial() {
-		System.out.println(classe + " " + nome + " lança Bola de Fogo Diabólica!\n");
+		System.out.println(getClasse() + " " + getNome() + " lança Bola de Fogo Diabólica!\n");
 	}
 }

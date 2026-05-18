@@ -17,6 +17,6 @@ public class Guerreiro extends Personagem {
 	
 	@Override
 	public void usarHabilidadeEspecial() {
-		System.out.println(classe + " " + nome + " ataca com Espada Flamejante Raivosa!\n");
+		System.out.println(getClasse() + " " + getNome() + " ataca com Espada Flamejante Raivosa!\n");
 	}
 }

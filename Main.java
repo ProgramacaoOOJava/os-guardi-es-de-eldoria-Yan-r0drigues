@@ -1,28 +1,35 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
-        Guerreiro arthus = new Guerreiro("Arthur", 8, 56, 25.3, 34, 23);
-        Mago morgana = new Mago("Morgana", 10, 32, 28.6, 34, 18);
+    	//Criando personagens
+    	Guerreiro sindri = new Guerreiro("Sindri", 5, 150, 12.0, 8, 55.0);
+    	Mago hildr = new Mago("Hildr", 7, 100, 15.0, 19, 11);
+    	Guerreiro bori = new Guerreiro("Bori", 3, 120, 10.0, 6, 5.0);
+    	Mago noma = new Mago("Noma", 6, 90, 14.0, 9, 6);
+    	
+    	//Criando grupos
+        Grupo grupoA = new Grupo("Guardiões");
+        Grupo grupoB = new Grupo("Titãs");
+        grupoA.adicionarMembro(sindri);
+        grupoA.adicionarMembro(noma);
+        grupoB.adicionarMembro(hildr);
+        grupoB.adicionarMembro(bori);
         
-        arthus.exibirStatus();
-        arthus.usarHabilidadeEspecial();
-        morgana.exibirStatus();
-        morgana.usarHabilidadeEspecial();
+        //Listando membros dos grupos
+        grupoA.listarMembros();
+        grupoB.listarMembros();
         
-        System.out.println("\n----- Array de Personagens -----\n");
-        List<Personagem> herois = new ArrayList<>();
+        grupoA.ordernarMembrosPorNivel();
+        grupoB.ordernarMembrosPorNivel();
         
-        herois.add(arthus);
-        herois.add(morgana);
+        System.out.println("\n--- Listando grupos após a ordenação por nível ---");
+        grupoA.listarMembros();
+        grupoB.listarMembros();
         
-        herois.add(new Guerreiro("Borin", 25, 89, 45.0, 68, 99.2));
-        herois.add(new Mago("Elana", 3, 12, 15.1, 8, 7));
+        //Batalha de grupos
+        Arena arenaDaMorte = new Arena("Arena da Morte");
         
-        for (Personagem p : herois) {
-        	p.exibirStatus();
-        	p.usarHabilidadeEspecial();
-        }
+        String resultadoDaArena = arenaDaMorte.batalharGrupos(grupoA, grupoB);
+        
+        System.out.println(resultadoDaArena);
     }
 }
